@@ -15,9 +15,9 @@ var createPolitician = function(name, partyColor) {
   };
 
   return politician;
-};
+}
 
-var winner;
+var winner = "???";
 
 var sylvia = createPolitician("Sylvia Rivera", [132,17,11]);
 var marsha = createPolitician("Marsha P. Johnson", [245,141,136]);
@@ -73,16 +73,7 @@ var setStateResults = function(state) {
   } else {
     winnersName.innerText = theStates[state].winner.name;
   }
-};
-
-sylvia.tallyTotalVotes();
-marsha.tallyTotalVotes();
-
-if (sylvia.totalVotes > marsha.totalVotes) {
-  winner = sylvia.name;
-} else if (marsha.totalVotes > sylvia.totalVotes) {
-  winner = marsha.name;
-} else winner = "Tie!";
+}
 
 var countryInfoTable = document.getElementById('countryResults');
 var row = countryInfoTable.children[0].children[0];
@@ -92,3 +83,12 @@ row.children[1].innerText = sylvia.totalVotes;
 row.children[2].innerText = marsha.name;
 row.children[3].innerText = marsha.totalVotes;
 row.children[5].innerText = winner;
+
+sylvia.tallyTotalVotes();
+marsha.tallyTotalVotes();
+
+if (sylvia.totalVotes > marsha.totalVotes) {
+  winner = sylvia.name;
+} else if (marsha.totalVotes > sylvia.totalVotes) {
+  winner = marsha.name;
+} else winner = "Tie!";
